@@ -1,4 +1,6 @@
-﻿namespace Debt_Payment_Calculator
+﻿using Debt_Payment_Calculator.View;
+
+namespace Debt_Payment_Calculator
 {
     public partial class App : Application
     {
