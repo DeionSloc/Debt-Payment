@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Debt_Payment_Calculator.View.Loading"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Loading"
+    Shell.NavBarIsVisible="False">
+    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <ActivityIndicator IsRunning="True" />
+        <Label Text="Loading..." />
+    </VerticalStackLayout>
+</ContentPage>

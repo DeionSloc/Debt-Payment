@@ -1,12 +1,141 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Debt_Payment_Calculator.View.Dashboard"
-             Title="Dashboard">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+<ContentPage
+    x:Class="Debt_Payment_Calculator.View.Dashboard"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Dashboard"
+    BackgroundColor="PeachPuff">
+    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Grid
+            Padding="5"
+            ColumnSpacing="1.25"
+            HorizontalOptions="Center"
+            RowSpacing="1.25"
+            VerticalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Entry
+                x:Name="lender"
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="18"
+                Placeholder="Lender"
+                VerticalTextAlignment="Center"
+                WidthRequest="144" />
+
+            <Entry
+                x:Name="originalAmount"
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="18"
+                Placeholder="Original Amount"
+                VerticalTextAlignment="Center"
+                WidthRequest="144" />
+
+            <Entry
+                x:Name="currentAmount"
+                Grid.Row="2"
+                Grid.Column="0"
+                Margin="18"
+                Placeholder="Current Amount"
+                VerticalTextAlignment="Center"
+                WidthRequest="144" />
+
+            <Entry
+                x:Name="payment"
+                Grid.Row="3"
+                Grid.Column="0"
+                Margin="18"
+                Placeholder="Payment"
+                VerticalTextAlignment="Center"
+                WidthRequest="144" />
+
+            <Entry
+                x:Name="percentageRate"
+                Grid.Row="4"
+                Grid.Column="0"
+                Margin="18"
+                Placeholder="Percentage Rate"
+                VerticalTextAlignment="Center"
+                WidthRequest="144" />
+        </Grid>
+
+        <ListView
+            x:Name="listView"
+            FlexLayout.Grow="1"
+            HasUnevenRows="True"
+            ItemTapped="listView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <VerticalStackLayout Padding="5">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    Grid.Column="0"
+                                    Margin="8"
+                                    FontAttributes="Bold"
+                                    FontSize="Medium"
+                                    Text="{Binding Lender}" />
+                                <Label
+                                    Grid.Column="1"
+                                    Margin="8"
+                                    FontAttributes="Bold"
+                                    FontSize="Medium"
+                                    Text="{Binding OriginalAmount}" />
+                                <Label
+                                    Grid.Column="2"
+                                    Margin="8"
+                                    FontAttributes="Bold"
+                                    FontSize="Medium"
+                                    Text="{Binding CurrentAmount}" />
+                                <Label
+                                    Grid.Column="3"
+                                    Margin="8"
+                                    FontAttributes="Bold"
+                                    FontSize="Medium"
+                                    Text="{Binding Payment}" />
+                                <Label
+                                    Grid.Column="4"
+                                    Margin="8"
+                                    FontAttributes="Bold"
+                                    FontSize="Medium"
+                                    Text="{Binding PercentageRate}" />
+                            </Grid>
+                        </VerticalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <HorizontalStackLayout
+            Margin="72"
+            HorizontalOptions="Center"
+            VerticalOptions="End">
+            <Button
+                x:Name="Save"
+                Margin="18"
+                Padding="18"
+                Clicked="Save_Clicked"
+                HorizontalOptions="Center"
+                Text="Save"
+                WidthRequest="144" />
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
